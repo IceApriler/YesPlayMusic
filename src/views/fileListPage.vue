@@ -1,11 +1,6 @@
 <template>
   <div v-show="show" class="home">
-    <TrackList
-      :id="5089851592"
-      :tracks="filteredTracks"
-      type="playlist"
-      :extra-context-menu-item="false ? ['removeTrackFromPlaylist'] : []"
-    />
+    <FileList :sourceData="sourceData" />
   </div>
 </template>
 
@@ -16,12 +11,12 @@ import { byAppleMusic } from '@/utils/staticData';
 import { newAlbums } from '@/api/album';
 import NProgress from 'nprogress';
 import { mapState } from 'vuex';
-import TrackList from '@/components/TrackList.vue';
+import FileList from '@/components/FileList';
 import mockData from '@/mock';
 
 export default {
   name: 'Home',
-  components: { TrackList },
+  components: { FileList },
   data() {
     return {
       show: true,
@@ -35,7 +30,7 @@ export default {
         items: [],
         indexs: [],
       },
-      filteredTracks: mockData,
+      sourceData: mockData,
     };
   },
   computed: {

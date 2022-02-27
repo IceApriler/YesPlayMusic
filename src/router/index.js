@@ -7,7 +7,7 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: () => import('@/views/fileList.vue'),
+    component: () => import('@/views/fileListPage.vue'),
     meta: {
       keepAlive: true,
       savePosition: true,
