@@ -7,7 +7,7 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: () => import('@/views/home.vue'),
+    component: () => import('@/views/fileList.vue'),
     meta: {
       keepAlive: true,
       savePosition: true,
@@ -145,6 +145,7 @@ VueRouter.prototype.push = function push(location) {
 };
 
 router.beforeEach((to, from, next) => {
+  console.log('------路由------', to.name, to.path);
   // 需要登录的逻辑
   if (to.meta.requireAccountLogin) {
     if (isAccountLoggedIn()) {
